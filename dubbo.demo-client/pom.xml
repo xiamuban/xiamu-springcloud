@@ -19,6 +19,11 @@
 
     <dependencies>
         <!-- 子模块特定的依赖（如果有）可以在这里添加 -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
 </project>
