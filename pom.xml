@@ -9,8 +9,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>dubbo.demo-client</module>
-        <module>dubbo-demo-server</module>
+        <module>dubbo-demo-consumer</module>
+        <module>dubbo-demo-provider</module>
+        <module>dubbo-demo-interface</module>
     </modules>
 
     <properties>
@@ -20,6 +21,7 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <spring-boot.version>2.6.13</spring-boot.version>
+        <dubbo.version>3.1.8</dubbo.version>
     </properties>
 
     <dependencies>
@@ -47,7 +49,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- 父项目定义的公共依赖，子模块会自动继承 -->
+            <!-- 父项目定义的公共依赖，子模块会自动继承，统一版本管理，不会自动引入 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -62,7 +64,21 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- 可以添加其他所有子模块需要的依赖 -->
+            <!-- Dubbo -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-bom</artifactId>
+                <version>${dubbo.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- Zookeeper -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-dependencies-zookeeper-curator5</artifactId>
+                <version>${dubbo.version}</version>
+                <type>pom</type>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

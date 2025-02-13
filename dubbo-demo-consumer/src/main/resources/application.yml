@@ -6,3 +6,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 server:
   port: 8074
+
+dubbo:
+  application:
+    name: dubbo-demo-client
+    logger: slf4j
+  protocol: # 设置dubbo传输协议
+    name: dubbo
+    port: 20880
+  registry:
+    address: zookeeper://127.0.0.1:2181
